@@ -83,12 +83,12 @@ export const projects = [
     details: `
       <p>
         I am building a Tinder-style interface for exploring repos. I set up a small SQLite schema for saved
-        picks, wired up GitHub’s API, and added simple filters so results feel relevant. I handled auth,
+        picks, wired up GitHub's API, and added simple filters so results feel relevant. I handled auth,
         sessions, and basic CI so the app stays stable as I iterate.
       </p>
     `,
   },
-]; // ← CLOSES projects
+];
 
 export const achievements = [
   {
@@ -99,14 +99,14 @@ export const achievements = [
   {
     title: "Entrance Scholarship for Academic Excellence — UVic",
     description: "Awarded on entry.",
-    cover: "/scholar.jpg", // serves from /public
+    cover: "/scholar.jpg",
   },
   {
     title: "PRAYAS Youth Impact Award",
     description: "Community service recognition.",
     cover: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=1640&auto=format&fit=crop",
   },
-]; // ← CLOSES achievements
+];
 
 export const experiences = [
   {
@@ -141,27 +141,25 @@ export const experiences = [
       </p>
     `,
   },
-]; // ← CLOSES experiences
+];
 
-// NEW: Hackathons row (TOP-LEVEL EXPORT)
 export const hackathons = [
   {
     title: "Studium — Mini Typed Language (UVEC)",
     slug: "studium-uvec",
-    cover: "/studium.jpg", // ensure this exists in /public
+    cover: "/studium.jpg",
     description:
       "Lark (LALR) grammar → AST visitor interpreter with scoped runtime and --explain mode.",
     tags: ["Python", "Lark", "LALR", "Interpreter", "CLI"],
     details: `
-      <ul>
-        <li>Grammar & parsing: Lark (LALR) → parse tree → AST.</li>
-        <li>Engine: Visitor executor; scoped env & type checks.</li>
-        <li>Semantics: short-circuit bools, %, int↔double coercions, friendly errors.</li>
-        <li>DX: CLI + debug parse-tree; small sanity programs.</li>
-        <li><code>--explain</code>: narrates branches, loops, assignments—teaching-first.</li>
-      </ul>
+      <p>
+        Grammar & parsing: Lark (LALR) → parse tree → AST. Engine: Visitor executor with scoped 
+        environment and type checks. Semantics: short-circuit bools, modulo operator, int↔double 
+        coercions, and friendly errors. DX: CLI with debug parse-tree and small sanity programs. 
+        The --explain flag narrates branches, loops, and assignments for a teaching-first experience.
+      </p>
     `,
     link: "",
     repo: "",
   },
-]; // ← CLOSES hackathons
+];
