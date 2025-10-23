@@ -143,4 +143,25 @@ export const experiences = [
       </p>
     `,
   },
+
+  export const hackathons = [
+  {
+    title: "Studium — Mini Typed Language (UVEC)",
+    slug: "studium-uvec",
+    cover: "/studium.jpg", // put this image in /public
+    description:
+      "Lark (LALR) grammar → AST visitor interpreter with scoped runtime and --explain mode.",
+    tags: ["Python", "Lark", "LALR", "Interpreter", "CLI"],
+    details: `
+      <ul>
+        <li>Grammar & parsing: Lark (LALR) → parse tree → AST.</li>
+        <li>Engine: visitor-based executor; scoped env, type checks.</li>
+        <li>Semantics: short-circuit bools, %, int↔double coercions, friendly errors.</li>
+        <li>DX: CLI + debug parse-tree; small sanity programs for fast iteration.</li>
+        <li><code>--explain</code>: narrates branches, loop counts, assignments in plain language.</li>
+      </ul>
+    `,
+    link: "", // add demo if you publish one
+    repo: "", // add repo if public
+  },
 ];
