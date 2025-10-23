@@ -36,8 +36,8 @@ export default function App() {
           <Carousel
             title="Hackathons"
             subtitle="Weekend builds with case pages"
-            items={hackathons}                             {/* ← new row */}
-            type="hackathon"                                {/* ← new type */}
+            items={hackathons}                             
+            type="hackathon"                               
           />
           <Carousel
             title="Achievements"
