@@ -1,6 +1,5 @@
 // src/data/projects.tsx
 
-
 export const projects = [
   {
     title: "UVSD — Satellite Data Backend",
@@ -63,7 +62,7 @@ export const projects = [
     description:
       "End-to-end application flow: tailored resumes/CLs, auto-fill, reply tracking, analytics.",
     tags: ["FastAPI", "React", "PostgreSQL", "Docker"],
-    link: "https://github.com/Mahir-Puri/AI-JOB-applier-Backend",   
+    link: "https://github.com/Mahir-Puri/AI-JOB-applier-Backend",
     repo: "https://github.com/Mahir-Puri/AI-JOB-applier-Backend",
     details: `
       <p>
@@ -77,10 +76,9 @@ export const projects = [
     title: "DevSwipe — GitHub Discovery",
     slug: "devswipe",
     cover: "/tinder.png",
-    description:
-      "Swipe UX to surface interesting repos quickly.",
+    description: "Swipe UX to surface interesting repos quickly.",
     tags: ["Flask", "SQLite", "GitHub API", "CI/CD"],
-    link: "https://github.com/Mahir-Puri/devswipe",   
+    link: "https://github.com/Mahir-Puri/devswipe",
     repo: "https://github.com/Mahir-Puri/devswipe",
     details: `
       <p>
@@ -90,7 +88,7 @@ export const projects = [
       </p>
     `,
   },
-];
+]; // ← CLOSES projects
 
 export const achievements = [
   {
@@ -101,14 +99,14 @@ export const achievements = [
   {
     title: "Entrance Scholarship for Academic Excellence — UVic",
     description: "Awarded on entry.",
-    cover: "scholar.jpg",
+    cover: "/scholar.jpg", // leading slash so it serves from /public
   },
   {
     title: "PRAYAS Youth Impact Award",
     description: "Community service recognition.",
     cover: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=1640&auto=format&fit=crop",
   },
-];
+]; // ← CLOSES achievements
 
 export const experiences = [
   {
@@ -137,31 +135,33 @@ export const experiences = [
     tags: ["Customer Service", "POS", "Loss Prevention", "Teamwork"],
     details: `
       <p>
-        I monitor multiple kiosks, clear age checks and price mismatches, and helpcustomers
+        I monitor multiple kiosks, clear age checks and price mismatches, and help customers
         through payment or scanning issues so the lane keeps moving. I verify receipts respectfully,
         escalate issues when needed, and restock supplies to keep the area clean and fast.
       </p>
     `,
   },
+]; // ← CLOSES experiences
 
-  export const hackathons = [
+// NEW: Hackathons row
+export const hackathons = [
   {
     title: "Studium — Mini Typed Language (UVEC)",
     slug: "studium-uvec",
-    cover: "/studium.jpg", // put this image in /public
+    cover: "/studium.jpg", // ensure this exists in /public
     description:
       "Lark (LALR) grammar → AST visitor interpreter with scoped runtime and --explain mode.",
     tags: ["Python", "Lark", "LALR", "Interpreter", "CLI"],
     details: `
       <ul>
         <li>Grammar & parsing: Lark (LALR) → parse tree → AST.</li>
-        <li>Engine: visitor-based executor; scoped env, type checks.</li>
+        <li>Engine: Visitor executor; scoped env & type checks.</li>
         <li>Semantics: short-circuit bools, %, int↔double coercions, friendly errors.</li>
-        <li>DX: CLI + debug parse-tree; small sanity programs for fast iteration.</li>
-        <li><code>--explain</code>: narrates branches, loop counts, assignments in plain language.</li>
+        <li>DX: CLI + debug parse-tree; small sanity programs.</li>
+        <li><code>--explain</code>: narrates branches, loops, assignments—teaching-first.</li>
       </ul>
     `,
-    link: "https://github.com/Mahir-Puri/Studium-UVEC-2025", 
-    repo: "https://github.com/Mahir-Puri/Studium-UVEC-2025", 
+    link: "",
+    repo: "",
   },
-];
+]; // ← CLOSES hackathons
