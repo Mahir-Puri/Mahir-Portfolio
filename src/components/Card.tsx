@@ -17,22 +17,21 @@ export default function Card({
   type,
 }: {
   item: Item
-  type: 'project' | 'achievement' | 'experience'
+  type: 'project' | 'achievement' | 'experience' | 'hackathon'
 }) {
   // Build route only for items that have detail pages
   const to =
-    type === 'project' && item.slug
-      ? `/project/${item.slug}`
-      : type === 'experience' && item.slug
-      ? `/experience/${item.slug}`
-      : undefined
+    (type === 'project'    && item.slug && `/project/${item.slug}`) ||
+    (type === 'experience' && item.slug && `/experience/${item.slug}`) ||
+    (type === 'hackathon'  && item.slug && `/hackathon/${item.slug}`) ||
+    undefined
 
   // If we have a route, wrap the whole card in <Link>. Otherwise render a <div>.
   const Wrapper: any = to ? Link : 'div'
   const wrapperProps: any = to ? { to } : {}
 
   return (
-    <Wrapper {...wrapperProps} className="block focus:outline-none">
+    <Wrapper {...wrapperProps} className="block focus:outline-none" aria-label={to ? `${item.title} — view details` : item.title}>
       <motion.div
         whileHover={{ scale: 1.02 }}
         className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/30 shine"
