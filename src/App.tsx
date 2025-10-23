@@ -6,7 +6,7 @@ import Profile from './components/Profile'
 import LinksSection from './components/LinksSection'
 import RecruiterPanel from './components/RecruiterPanel'
 import Footer from './components/Footer'
-import { projects, achievements, experiences } from './data/projects'
+import { projects, achievements, experiences, hackathons } from './data/projects' // ← add hackathons
 import SkillsSection from './components/SkillsSection'
 import VolunteerSection from './components/VolunteerSection'
 import ContactSection from './components/ContactSection'
@@ -30,8 +30,14 @@ export default function App() {
           <Carousel
             title="Featured Projects"
             subtitle="Handpicked work — like your 'Continue Watching' row"
-            items={(recruiterMode ? projects.filter(p=>p.featured) : projects).slice(0, 10)}
+            items={(recruiterMode ? projects.filter(p => p.featured) : projects).slice(0, 10)}
             type="project"
+          />
+          <Carousel
+            title="Hackathons"
+            subtitle="Weekend builds with case pages"
+            items={hackathons}                             {/* ← new row */}
+            type="hackathon"                                {/* ← new type */}
           />
           <Carousel
             title="Achievements"
