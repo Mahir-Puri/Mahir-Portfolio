@@ -99,7 +99,7 @@ export const achievements = [
   {
     title: "Entrance Scholarship for Academic Excellence — UVic",
     description: "Awarded on entry.",
-    cover: "/scholar.jpg", // leading slash so it serves from /public
+    cover: "/scholar.jpg", // serves from /public
   },
   {
     title: "PRAYAS Youth Impact Award",
@@ -143,7 +143,7 @@ export const experiences = [
   },
 ]; // ← CLOSES experiences
 
-// NEW: Hackathons row
+// NEW: Hackathons row (TOP-LEVEL EXPORT)
 export const hackathons = [
   {
     title: "Studium — Mini Typed Language (UVEC)",
