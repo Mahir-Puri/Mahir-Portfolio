@@ -159,7 +159,7 @@ export const hackathons = [
         The --explain flag narrates branches, loops, and assignments for a teaching-first experience.
       </p>
     `,
-    link: "",
-    repo: "",
+    link: "https://github.com/Mahir-Puri/Studium-UVEC-2025",
+    repo: "https://github.com/Mahir-Puri/Studium-UVEC-2025",
   },
 ];
