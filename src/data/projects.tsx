@@ -161,7 +161,7 @@ export const experiences = [
         <li><code>--explain</code>: narrates branches, loop counts, assignments in plain language.</li>
       </ul>
     `,
-    link: "", // add demo if you publish one
-    repo: "", // add repo if public
+    link: "https://github.com/Mahir-Puri/Studium-UVEC-2025", 
+    repo: "https://github.com/Mahir-Puri/Studium-UVEC-2025", 
   },
 ];
