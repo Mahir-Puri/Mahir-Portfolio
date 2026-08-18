@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAppMode } from '../context/AppMode'
 import { contactInfo } from '../data/content'
-import { GitHubIcon, LinkedInIcon, MailIcon, DownloadIcon, MenuIcon, CloseIcon } from './icons'
+import { GitHubIcon, LinkedInIcon, MailIcon, DownloadIcon, MenuIcon, CloseIcon, SearchIcon } from './icons'
+
+function openCommandPalette() {
+  window.dispatchEvent(new Event('open-command-palette'))
+}
 
 const NAV_LINKS = [
   { href: '#experience', label: 'Experience' },
@@ -28,7 +32,7 @@ export default function Navbar() {
   }, [menuOpen])
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-md">
+    <header className="print:hidden sticky top-0 z-50 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-md">
       <nav className="flex items-center justify-between px-4 md:px-8 py-4">
         <motion.a
           href="#"
@@ -51,6 +55,16 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={openCommandPalette}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs text-white/50 border border-white/10 hover:border-white/30 hover:text-white/80 transition-colors"
+            aria-label="Open search (Cmd K)"
+          >
+            <SearchIcon className="h-3.5 w-3.5" />
+            <span className="hidden lg:inline">Jump to...</span>
+            <kbd className="text-[10px] text-white/30 border border-white/15 rounded px-1">⌘K</kbd>
+          </button>
+
           <div className="hidden md:flex items-center gap-1.5">
             <a
               href={contactInfo.github}
@@ -125,6 +139,16 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          <button
+            onClick={() => {
+              setMenuOpen(false)
+              openCommandPalette()
+            }}
+            className="w-full flex items-center gap-2 py-2.5 text-white/60 hover:text-[var(--accent)] transition-colors"
+          >
+            <SearchIcon className="h-4 w-4" /> Search
+          </button>
+
           <div className="flex items-center gap-2 pt-3 border-t border-white/10 mt-2">
             <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="p-2 rounded-full border border-white/10">
               <GitHubIcon />

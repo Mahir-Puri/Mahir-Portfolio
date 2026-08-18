@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useAppMode } from '../context/AppMode'
+import { currentlyNote } from '../data/content'
 
 export default function AboutSection() {
   const { reduceMotion } = useAppMode()
@@ -38,6 +39,7 @@ export default function AboutSection() {
             my comfort zone. I'm currently looking for Winter 2027 software engineering internships, and I'm
             open to relocating for the right team.
           </p>
+          <p className="text-sm text-white/50 border-l-2 border-[var(--accent)]/40 pl-3">{currentlyNote}</p>
         </motion.div>
       </div>
     </section>

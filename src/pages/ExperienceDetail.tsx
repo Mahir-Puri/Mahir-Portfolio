@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { experiences } from '../data/content'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 export default function ExperienceDetail() {
   const { slug } = useParams()
@@ -14,6 +15,11 @@ export default function ExperienceDetail() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [navigate])
+
+  useDocumentMeta(
+    exp ? `${exp.title} | MAHIRFLIX` : 'Experience not found | MAHIRFLIX',
+    exp ? `${exp.org}, ${exp.orgSub}. ${exp.summaryPoints[0]}` : 'This role could not be found.'
+  )
 
   if (!exp) {
     return (

@@ -35,7 +35,7 @@ export default function Carousel({
           <h3 className="text-lg md:text-xl font-bold">{title}</h3>
           {subtitle && <p className="text-white/60 text-sm">{subtitle}</p>}
         </div>
-        <div className="hidden md:flex gap-2">
+        <div className="print:hidden hidden md:flex gap-2">
           <button
             onClick={() => scrollBy(-1)}
             className="neu-surface p-2 rounded border border-white/10 hover:border-white/30 focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
@@ -58,7 +58,7 @@ export default function Carousel({
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true }}
         ref={scroller}
-        className="flex gap-4 overflow-x-auto snap-x-mandatory pb-3"
+        className="flex gap-4 overflow-x-auto snap-x-mandatory pb-3 print:flex-wrap print:overflow-visible"
         tabIndex={0}
         onKeyDown={onKeyDown}
         role="region"

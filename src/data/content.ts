@@ -1,5 +1,5 @@
 // Centralized, typed content for the portfolio.
-// Update copy here — components read from this file, nothing is duplicated.
+// Update copy here: components read from this file, nothing is duplicated.
 
 export type ProjectStatus = 'Completed' | 'Ongoing' | 'Incoming'
 
@@ -31,7 +31,7 @@ export interface Project {
 export const featuredProjects: Project[] = [
   {
     slug: 'rtpn-payments-network',
-    title: 'RTPN — Real-Time Payments Network Simulator',
+    title: 'RTPN: Real-Time Payments Network Simulator',
     oneLiner:
       'A simulated real-time payments network with a double-entry ledger, a Kafka message rail, and a read-only AI agent for querying settlement state.',
     status: 'Completed',
@@ -59,7 +59,7 @@ export const featuredProjects: Project[] = [
   },
   {
     slug: 'anchor-durable-runtime',
-    title: 'Anchor — Durable Agent Runtime',
+    title: 'Anchor: Durable Agent Runtime',
     oneLiner:
       'A durable runtime for agent workflows that resumes interrupted work without duplicating side effects, using event-sourced replay.',
     status: 'Completed',
@@ -88,7 +88,7 @@ export const featuredProjects: Project[] = [
   },
   {
     slug: 'ballast-inference-autoscaler',
-    title: 'Ballast — Kubernetes Inference Autoscaler',
+    title: 'Ballast: Kubernetes Inference Autoscaler',
     oneLiner:
       'A Kubernetes operator that autoscales LLM-serving deployments on pending and in-flight requests per replica, instead of CPU.',
     status: 'Ongoing',
@@ -140,7 +140,7 @@ export const featuredProjects: Project[] = [
   },
   {
     slug: 'adversary-llm-security-harness',
-    title: 'Adversary — LLM Security Testing Harness',
+    title: 'Adversary: LLM Security Testing Harness',
     oneLiner:
       '19 automated security probes across six attack categories, scored by an injection-hardened LLM judge with severity-gated CI.',
     status: 'Completed',
@@ -388,7 +388,7 @@ export const additionalProjectRows: ProjectRow[] = [
       },
       {
         slug: 'traffictongue',
-        title: 'TrafficTongue — Honking Detection',
+        title: 'TrafficTongue: Honking Detection',
         oneLiner: 'Audio analysis and edge ML to classify honk types and visualize city hotspots.',
         status: 'Completed',
         year: '2024',
@@ -408,7 +408,7 @@ export const additionalProjectRows: ProjectRow[] = [
     items: [
       {
         slug: 'studium-uvec',
-        title: 'Studium — Mini Typed Language',
+        title: 'Studium: Mini Typed Language',
         oneLiner: 'A Lark (LALR) grammar into an AST visitor interpreter, with a scoped runtime and an --explain mode.',
         status: 'Completed',
         year: '2025',
@@ -563,6 +563,9 @@ export const skillGroups: SkillGroup[] = [
   },
   { title: 'AI-Assisted Development', items: ['Claude Code', 'Anthropic tool-use agents'] },
 ]
+
+export const currentlyNote =
+  "Right now: building Ballast's scaling logic and the Shopify flash-sale reservation path, and getting ready for the Real-Time Payments Cloud Team co-op this fall."
 
 export const contactInfo = {
   email: 'mahirpuri.17@gmail.com',

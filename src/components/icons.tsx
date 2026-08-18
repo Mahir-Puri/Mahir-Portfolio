@@ -66,6 +66,15 @@ export function MenuIcon({ className = 'h-5 w-5' }: IconProps) {
   )
 }
 
+export function SearchIcon({ className = 'h-4 w-4' }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className} aria-hidden="true">
+      <circle cx="11" cy="11" r="7" />
+      <path d="m21 21-4.3-4.3" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 export function CloseIcon({ className = 'h-5 w-5' }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className} aria-hidden="true">

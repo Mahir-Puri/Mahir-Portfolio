@@ -57,3 +57,30 @@ button:focus-visible,
     scroll-behavior: auto !important;
   }
 }
+
+/* Printable, non-wasteful print styles: light background, no dark boxes */
+@media print {
+  * {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    color: #111 !important;
+    border-color: #ccc !important;
+    /* whileInView animations never fire without scrolling, which print
+       rendering doesn't do; force everything visible so nothing is lost. */
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  html, body {
+    background: #fff !important;
+  }
+  h1, h2, h3, h4 {
+    color: #000 !important;
+  }
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+}

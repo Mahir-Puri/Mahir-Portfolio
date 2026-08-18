@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AppModeProvider, useAppMode } from './context/AppMode'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -13,11 +15,18 @@ import RecruiterSnapshot from './components/RecruiterSnapshot'
 import Footer from './components/Footer'
 
 function AppShell() {
-  const { recruiterMode } = useAppMode()
+  const { recruiterMode, reduceMotion } = useAppMode()
+  const location = useLocation()
+
+  useEffect(() => {
+    if (!location.hash) return
+    const el = document.querySelector(location.hash)
+    el?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' })
+  }, [location.hash, reduceMotion])
 
   return (
     <main className="min-h-screen bg-netflix-bg text-white relative overflow-x-hidden">
-      <div className="pointer-events-none fixed inset-0 bg-cinema-gradient opacity-80" />
+      <div className="print:hidden pointer-events-none fixed inset-0 bg-cinema-gradient opacity-80" />
       <Navbar />
 
       <div className="relative z-10">

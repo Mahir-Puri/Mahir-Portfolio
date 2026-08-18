@@ -9,7 +9,7 @@ const PALETTES: Record<string, string> = {
 }
 
 function initials(title: string) {
-  const cleaned = title.split('—')[0].split(':')[0].trim()
+  const cleaned = title.split(':')[0].trim()
   const words = cleaned.split(/\s+/).filter((w) => /[A-Za-z]/.test(w))
   if (words.length === 0) return '••'
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase()
