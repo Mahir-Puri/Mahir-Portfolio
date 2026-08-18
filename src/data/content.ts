@@ -254,55 +254,11 @@ export const additionalProjectRows: ProjectRow[] = [
             'Benchmarking is still in progress, so I am not publishing performance numbers until that work is complete.',
         },
       },
-      {
-        slug: 'ai-job-applier',
-        title: 'AI Job Applier',
-        oneLiner:
-          'An end-to-end job application flow: tailored resumes and cover letters, auto-fill, and reply tracking.',
-        status: 'Ongoing',
-        year: '2025',
-        category: 'Backend & Data',
-        tech: ['FastAPI', 'React', 'PostgreSQL', 'Docker'],
-        github: 'https://github.com/Mahir-Puri/AI-JOB-applier-Backend',
-        detail: {
-          problem:
-            'Applying to many roles individually means repeating the same tailoring work (resume, cover letter, form fields) over and over.',
-          architecture:
-            'A FastAPI backend generates targeted resumes and cover letters, fills common application forms, and tracks replies, with a React frontend and a PostgreSQL store.',
-          decision:
-            'I am containerizing the stack with Docker so it runs the same way locally as it will in any deployment environment.',
-          learned:
-            'This project is still evolving. I am adding an analytics view for conversion and follow-ups next.',
-        },
-      },
     ],
   },
   {
     title: 'Security',
     items: [
-      {
-        slug: 'securedoc-cloud-platform',
-        title: 'SecureDoc Cloud Platform',
-        oneLiner:
-          'A serverless document-processing platform with Terraform-provisioned infrastructure and automated deployment validation.',
-        status: 'Completed',
-        year: 'April 2026',
-        category: 'Security',
-        tech: ['AWS Lambda', 'S3', 'API Gateway', 'IAM', 'Terraform'],
-        github: null,
-        detail: {
-          problem:
-            'Serverless document processing needs infrastructure that is reproducible and access-scoped by default, not configured by hand in a console.',
-          architecture:
-            'The platform runs on AWS Lambda, S3, and API Gateway, with IAM policies scoped to least privilege and environment-scoped secrets.',
-          decision:
-            'All infrastructure is provisioned through Terraform rather than manual console changes, so environments are reproducible and reviewable.',
-          testing:
-            'Automated regression and validation gates run before deployment to catch configuration or infrastructure regressions early.',
-          outcome:
-            'Infrastructure changes go through the same validation gates as application code before they reach an environment.',
-        },
-      },
       {
         slug: 'cybersci-national-cybersecurity-competition',
         title: 'CyberSci National Cybersecurity Competition',
@@ -346,59 +302,6 @@ export const additionalProjectRows: ProjectRow[] = [
             'Rendering loops are kept separate from React state, and events are modeled with discriminated unions, so high-frequency updates do not fight the component render cycle.',
           reliability:
             'The dashboard has to handle reconnects and replay gracefully, since a dropped WebSocket connection should not lose or duplicate the operational picture it is showing.',
-        },
-      },
-      {
-        slug: 'devswipe',
-        title: 'DevSwipe',
-        oneLiner: 'A swipe-based interface for discovering interesting GitHub repositories quickly.',
-        status: 'Ongoing',
-        year: '2025',
-        category: 'Infrastructure & Tooling',
-        tech: ['Flask', 'SQLite', 'GitHub API', 'CI/CD'],
-        github: 'https://github.com/Mahir-Puri/devswipe',
-        detail: {
-          problem: 'Browsing GitHub for interesting repositories one search at a time is slow and easy to lose track of.',
-          architecture:
-            "A Flask backend wires up GitHub's API with a small SQLite schema for saved picks and simple filters to keep results relevant.",
-          decision: 'I handled auth, sessions, and a basic CI pipeline early so the app stays stable while I keep iterating on it.',
-        },
-      },
-    ],
-  },
-  {
-    title: 'Embedded & Hardware',
-    items: [
-      {
-        slug: 'smart-fall-prevention',
-        title: 'Smart Fall Prevention System',
-        oneLiner: 'A Flask and Raspberry Pi Pico system that detects falls in near real time, with a dashboard and alerts.',
-        status: 'Completed',
-        year: '2024',
-        category: 'Embedded & Hardware',
-        tech: ['Flask', 'Raspberry Pi Pico', 'MicroPython'],
-        github: null,
-        detail: {
-          problem: 'Falls need to be detected and flagged quickly, without waiting on someone to notice.',
-          architecture:
-            'A Raspberry Pi Pico streams sensor data to a Flask service that scores events in real time, with a small dashboard to visualize status and history and alerts when thresholds are crossed.',
-          testing: 'I tuned the detection logic with simulated falls and trimmed false positives before relying on live thresholds.',
-          learned: 'How much of a real-time embedded system comes down to tuning thresholds against real noisy sensor data, not the initial logic.',
-        },
-      },
-      {
-        slug: 'traffictongue',
-        title: 'TrafficTongue: Honking Detection',
-        oneLiner: 'Audio analysis and edge ML to classify honk types and visualize city hotspots.',
-        status: 'Completed',
-        year: '2024',
-        category: 'Embedded & Hardware',
-        tech: ['TensorFlow', 'Python', 'Embedded', 'Node.js'],
-        github: null,
-        detail: {
-          problem: 'Understanding honking patterns in a city requires classifying audio events at the edge, not just recording raw audio.',
-          architecture:
-            'An audio capture pipeline feeds a classifier trained to separate honks from ambient noise, running on a small device for edge testing, with a simple web view showing live detections and location heatmaps.',
         },
       },
     ],
