@@ -1,82 +1,82 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import type { Project } from '../data/content'
+import { useAppMode } from '../context/AppMode'
+import ProjectCover from './ProjectCover'
+import { GitHubIcon, ExternalLinkIcon } from './icons'
 
-type Item = {
-  title: string
-  description: string
-  cover: string
-  slug?: string
-  tags?: string[]
-  link?: string
-  repo?: string
-  meta?: string
+const STATUS_STYLE: Record<Project['status'], string> = {
+  Completed: 'border-[var(--accent)]/40 text-[var(--accent)]',
+  Ongoing: 'border-amber-400/40 text-amber-300',
+  Incoming: 'border-cyan-400/40 text-cyan-300',
 }
 
-export default function Card({
-  item,
-  type,
-}: {
-  item: Item
-  type: 'project' | 'achievement' | 'experience' | 'hackathon'
-}) {
-  // Build route only for items that have detail pages
-  const to =
-    (type === 'project'    && item.slug && `/project/${item.slug}`) ||
-    (type === 'experience' && item.slug && `/experience/${item.slug}`) ||
-    (type === 'hackathon'  && item.slug && `/hackathon/${item.slug}`) ||
-    undefined
-
-  // If we have a route, wrap the whole card in <Link>. Otherwise render a <div>.
-  const Wrapper: any = to ? Link : 'div'
-  const wrapperProps: any = to ? { to } : {}
+export default function Card({ item }: { item: Project }) {
+  const { reduceMotion } = useAppMode()
 
   return (
-    <Wrapper {...wrapperProps} className="block focus:outline-none" aria-label={to ? `${item.title} — view details` : item.title}>
-      <motion.div
-        whileHover={{ scale: 1.02 }}
-        className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/30 shine"
-      >
-        {/* cover */}
-        <div
-          className="aspect-[16/9] bg-cover bg-center"
-          style={{ backgroundImage: `url(${item.cover})` }}
-          aria-hidden
-        />
+    <motion.article
+      whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+      className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/30 shine flex flex-col h-full"
+    >
+      <Link to={`/project/${item.slug}`} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-t-xl">
+        <ProjectCover title={item.title} category={item.category} />
+      </Link>
 
-        {/* gradient overlay (visual only) */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+      <div className="p-3 space-y-2 flex-1 flex flex-col">
+        <Link
+          to={`/project/${item.slug}`}
+          className="font-bold text-sm leading-snug hover:text-[var(--accent)] transition-colors focus:outline-none focus-visible:underline"
+        >
+          {item.title}
+        </Link>
 
-        {/* content */}
-        <div className="relative z-10 p-3 space-y-1">
-          <h3 className="font-bold">{item.title}</h3>
-          {item.meta && <div className="text-[11px] text-white/60">{item.meta}</div>}
-          <p className="text-xs text-white/70 line-clamp-2">{item.description}</p>
-          {item.tags && (
-            <div className="flex flex-wrap gap-1 pt-1">
-              {item.tags.map((t, i) => (
-                <span
-                  key={i}
-                  className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 border border-white/10"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          )}
+        <div className="flex items-center gap-2 text-[10px]">
+          <span className={`font-bold uppercase tracking-wider px-1.5 py-0.5 rounded border ${STATUS_STYLE[item.status]}`}>
+            {item.status}
+          </span>
+          <span className="text-white/40">{item.year}</span>
         </div>
 
-        {/* “View details” hover hint (visual only; doesn’t block clicks) */}
-        {to && (
-          <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity grid place-items-center z-20">
-            <span className="px-3 py-1.5 rounded bg-[var(--accent)] text-sm font-semibold shadow-glow">
-              View details
-            </span>
-          </div>
-        )}
+        <p className="text-xs text-white/70 line-clamp-2">{item.oneLiner}</p>
 
-        {/* glow on hover */}
-        <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity shadow-glow rounded-xl" />
-      </motion.div>
-    </Wrapper>
+        <p className="text-[11px] text-white/40 leading-relaxed">{item.tech.slice(0, 5).join(' · ')}</p>
+
+        <div className="mt-auto pt-2 flex items-center justify-between gap-2 text-xs">
+          {item.github ? (
+            <a
+              href={item.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-white/60 hover:text-[var(--accent)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded px-1"
+              aria-label={`${item.title} on GitHub`}
+            >
+              <GitHubIcon className="h-3.5 w-3.5" /> Code
+            </a>
+          ) : (
+            <span />
+          )}
+
+          <div className="flex items-center gap-3">
+            {item.demo && (
+              <a
+                href={item.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-white/60 hover:text-[var(--accent)] transition-colors"
+              >
+                Live <ExternalLinkIcon />
+              </a>
+            )}
+            <Link
+              to={`/project/${item.slug}`}
+              className="font-semibold text-[var(--accent)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded px-1"
+            >
+              More Info
+            </Link>
+          </div>
+        </div>
+      </div>
+    </motion.article>
   )
 }
