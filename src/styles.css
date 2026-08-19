@@ -56,6 +56,27 @@ button:focus-visible,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  /* view-transition pseudo-elements live outside the normal tree, so the
+     rule above doesn't reach them; neutralize separately as a failsafe. */
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Netflix-style card-to-detail expand, driven by the View Transitions API.
+   Falls back silently in browsers without support (React Router feature-
+   detects this). Named groups (project-cover-<slug>) get the browser's
+   default morph between the card thumbnail and the detail page header. */
+::view-transition-group(*) {
+  animation-duration: 0.38s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
 }
 
 /* Printable, non-wasteful print styles: light background, no dark boxes */

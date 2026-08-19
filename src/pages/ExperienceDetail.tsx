@@ -34,7 +34,7 @@ export default function ExperienceDetail() {
     <div className="px-4 md:px-8 py-10 max-w-3xl mx-auto">
       <Link to="/" className="text-white/70 hover:text-white">← Back</Link>
 
-      <div className="mt-4">
+      <div className="mt-4" style={{ viewTransitionName: `experience-card-${exp.slug}` }}>
         <span
           className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full border mb-3 ${
             exp.status === 'Incoming' ? 'border-cyan-400/40 text-cyan-300' : 'border-[var(--accent)]/40 text-[var(--accent)]'

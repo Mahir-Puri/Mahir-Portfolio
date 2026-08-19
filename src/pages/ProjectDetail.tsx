@@ -66,13 +66,15 @@ export default function ProjectDetail() {
       <Link to="/" className="text-white/70 hover:text-white">← Back</Link>
 
       <div className="mt-4 grid md:grid-cols-2 gap-6 items-start">
-        {project.slug === 'rtpn-payments-network' ? (
-          <RTPNDiagram />
-        ) : (
-          <div className="rounded-xl overflow-hidden border border-white/10">
-            <ProjectCover title={project.title} category={project.category} />
-          </div>
-        )}
+        <div style={{ viewTransitionName: `project-cover-${project.slug}` }}>
+          {project.slug === 'rtpn-payments-network' ? (
+            <RTPNDiagram />
+          ) : (
+            <div className="rounded-xl overflow-hidden border border-white/10">
+              <ProjectCover title={project.title} category={project.category} />
+            </div>
+          )}
+        </div>
         <div>
           <div className="flex items-center gap-2 text-xs mb-2">
             <span className={`font-bold uppercase tracking-wider px-2 py-1 rounded-full border ${STATUS_STYLE[project.status]}`}>

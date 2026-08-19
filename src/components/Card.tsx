@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useViewTransitionState } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import type { Project } from '../data/content'
 import { useAppMode } from '../context/AppMode'
@@ -13,19 +13,28 @@ const STATUS_STYLE: Record<Project['status'], string> = {
 
 export default function Card({ item }: { item: Project }) {
   const { reduceMotion } = useAppMode()
+  const to = `/project/${item.slug}`
+  const isTransitioningToThis = useViewTransitionState(to)
+  const useTransition = !reduceMotion
 
   return (
     <motion.article
       whileHover={reduceMotion ? undefined : { scale: 1.02 }}
       className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/30 shine flex flex-col h-full"
     >
-      <Link to={`/project/${item.slug}`} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-t-xl">
+      <Link
+        to={to}
+        viewTransition={useTransition}
+        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-t-xl"
+        style={isTransitioningToThis ? { viewTransitionName: `project-cover-${item.slug}` } : undefined}
+      >
         <ProjectCover title={item.title} category={item.category} />
       </Link>
 
       <div className="p-3 space-y-2 flex-1 flex flex-col">
         <Link
-          to={`/project/${item.slug}`}
+          to={to}
+          viewTransition={useTransition}
           className="font-bold text-sm leading-snug hover:text-[var(--accent)] transition-colors focus:outline-none focus-visible:underline"
         >
           {item.title}
@@ -69,7 +78,8 @@ export default function Card({ item }: { item: Project }) {
               </a>
             )}
             <Link
-              to={`/project/${item.slug}`}
+              to={to}
+              viewTransition={useTransition}
               className="font-semibold text-[var(--accent)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded px-1"
             >
               More Info
