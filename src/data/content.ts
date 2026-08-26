@@ -167,6 +167,30 @@ export const featuredProjects: Project[] = [
         'How much of practical LLM security testing is judge design and calibration, not just writing attack prompts.',
     },
   },
+  {
+    slug: 'strands-multi-agent-security-auditing',
+    title: 'Strands: Multi-Agent Security Auditing Pipeline',
+    oneLiner:
+      'A compound AI system with a planner, orchestrator, and specialist sub-agents that audit code for security vulnerabilities under least-privilege tool scoping.',
+    status: 'Ongoing',
+    year: '2026',
+    category: 'Featured',
+    tech: ['Python', 'FastAPI', 'Anthropic API', 'Docker'],
+    github: 'https://github.com/Mahir-Puri/strands',
+    detail: {
+      problem:
+        'Security audits that rely on a single static-analysis pass or a single LLM call miss vulnerabilities that only become apparent once earlier findings are considered together.',
+      why: 'I wanted to see whether a compound AI system, multiple specialized agents supervised by a planner, could audit more thoroughly than a single model call, and whether that process could be evaluated rigorously instead of just eyeballed.',
+      architecture:
+        "A planner and orchestrator coordinate three specialist sub-agents, each scoped to least-privilege tools. A supervisor observes each agent's findings at runtime and revises the plan before the next agent executes, so later agents can act on what earlier ones found.",
+      decision:
+        "Sub-agents are scoped to the minimum tools they need rather than given full access, so a compromised or misbehaving agent can't do more than its specific task requires.",
+      testing:
+        "I'm building a precision/recall/F1 evaluation harness against benchmark repositories with intentionally planted vulnerabilities, using deterministic LLM cassette replay so the same test run produces the same result, plus 50 automated tests enforced through GitHub Actions CI.",
+      learned:
+        "This project is still in progress, so I'm describing the evaluation harness as being built, not as finished results.",
+    },
+  },
 ]
 
 export interface ProjectRow {

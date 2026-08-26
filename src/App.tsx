@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import ExperienceSection from './components/ExperienceSection'
 import FeaturedProjectsSection from './components/FeaturedProjectsSection'
 import AdditionalProjectsSection from './components/AdditionalProjectsSection'
+import RecentlyShippedSection from './components/RecentlyShippedSection'
 import SkillsSection from './components/SkillsSection'
 import EducationSection from './components/EducationSection'
 import CommunitySection from './components/CommunitySection'
@@ -38,6 +39,7 @@ function AppShell() {
         <section className="px-4 md:px-8 mt-10 space-y-10">
           <FeaturedProjectsSection />
           <AdditionalProjectsSection />
+          <RecentlyShippedSection />
         </section>
 
         <SkillsSection />

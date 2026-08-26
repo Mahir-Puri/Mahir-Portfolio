@@ -1,5 +1,6 @@
 import Carousel from './Carousel'
-import { additionalProjectRows } from '../data/content'
+import Card from './Card'
+import { additionalProjectRows, type Project } from '../data/content'
 import { useAppMode } from '../context/AppMode'
 
 export default function AdditionalProjectsSection() {
@@ -10,7 +11,13 @@ export default function AdditionalProjectsSection() {
   return (
     <div className="space-y-10">
       {additionalProjectRows.map((row) => (
-        <Carousel key={row.title} title={row.title} items={row.items} />
+        <Carousel<Project>
+          key={row.title}
+          title={row.title}
+          items={row.items}
+          getKey={(p) => p.slug}
+          renderItem={(p) => <Card item={p} />}
+        />
       ))}
     </div>
   )

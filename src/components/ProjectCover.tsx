@@ -6,6 +6,7 @@ const PALETTES: Record<string, string> = {
   'Infrastructure & Tooling': 'linear-gradient(135deg, #17181a 0%, #201417 60%, #2c1416 100%)',
   'Embedded & Hardware': 'linear-gradient(135deg, #191919 0%, #251517 60%, #331416 100%)',
   'Earlier Builds': 'linear-gradient(135deg, #1a1a1a 0%, #221718 60%, #2c1517 100%)',
+  'Live Activity': 'linear-gradient(135deg, #151515 0%, #241012 55%, #33090c 100%)',
 }
 
 function initials(title: string) {

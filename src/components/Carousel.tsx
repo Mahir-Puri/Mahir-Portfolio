@@ -1,18 +1,20 @@
-import { useRef } from 'react'
+import { useRef, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
-import Card from './Card'
-import type { Project } from '../data/content'
 import { useAppMode } from '../context/AppMode'
 import { ChevronLeftIcon, ChevronRightIcon } from './icons'
 
-export default function Carousel({
+export default function Carousel<T>({
   title,
   subtitle,
   items,
+  getKey,
+  renderItem,
 }: {
   title: string
   subtitle?: string
-  items: Project[]
+  items: T[]
+  getKey: (item: T) => string
+  renderItem: (item: T) => ReactNode
 }) {
   const scroller = useRef<HTMLDivElement>(null)
   const { reduceMotion } = useAppMode()
@@ -65,8 +67,8 @@ export default function Carousel({
         aria-label={`${title} carousel`}
       >
         {items.map((it) => (
-          <div key={it.slug} className="snap-start shrink-0 w-64">
-            <Card item={it} />
+          <div key={getKey(it)} className="snap-start shrink-0 w-64">
+            {renderItem(it)}
           </div>
         ))}
       </motion.div>

@@ -1,7 +1,11 @@
 import { education, contactInfo } from '../data/content'
+import { useGithubStats, formatRelativeTime } from '../hooks/useGithubStats'
 import { GitHubIcon, LinkedInIcon, MailIcon, DownloadIcon } from './icons'
 
 export default function RecruiterSnapshot() {
+  const { publicRepos, lastCommitDate, topLanguage } = useGithubStats()
+  const hasActivity = publicRepos !== null && lastCommitDate !== null
+
   return (
     <section className="px-4 md:px-8 mt-6">
       <div className="rounded-2xl border border-cyan-400/30 bg-cyan-400/5 p-5 md:p-6">
@@ -27,6 +31,13 @@ export default function RecruiterSnapshot() {
           <span>Graduating Dec. 2028</span>
           <span>Available: {contactInfo.availability}</span>
         </div>
+
+        {hasActivity && (
+          <div className="mt-2 text-sm text-cyan-100/70">
+            {publicRepos} public repositories · last commit {formatRelativeTime(lastCommitDate!)}
+            {topLanguage && <> · most active in {topLanguage}</>}
+          </div>
+        )}
 
         <div className="mt-3 flex items-center gap-3 text-sm">
           <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-cyan-200/80 hover:text-cyan-200">
