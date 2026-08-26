@@ -16,8 +16,9 @@ export default function Hero() {
             </span>
 
             <motion.h1
-              initial={reduceMotion ? undefined : { opacity: 0, y: 10 }}
-              animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reduceMotion ? 0 : undefined }}
               className="text-3xl md:text-5xl font-extrabold leading-tight"
             >
               I build the systems behind the screen.
@@ -82,8 +83,9 @@ export default function Hero() {
           </div>
 
           <motion.div
-            initial={reduceMotion ? undefined : { opacity: 0, scale: 0.98 }}
-            animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: reduceMotion ? 0 : undefined }}
             className="aspect-[4/5] md:aspect-square rounded-xl overflow-hidden border border-white/10 bg-black/50 shine"
           >
             <img

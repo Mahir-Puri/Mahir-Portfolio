@@ -56,9 +56,10 @@ export default function Carousel<T>({
       </div>
 
       <motion.div
-        initial={reduceMotion ? undefined : { opacity: 0, y: 10 }}
-        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: reduceMotion ? 0 : undefined }}
         ref={scroller}
         className="flex gap-4 overflow-x-auto snap-x-mandatory pb-3 print:flex-wrap print:overflow-visible"
         tabIndex={0}

@@ -36,8 +36,9 @@ export default function Navbar() {
       <nav className="flex items-center justify-between px-4 md:px-8 py-4">
         <motion.a
           href="#"
-          initial={reduceMotion ? undefined : { opacity: 0, y: -10 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: reduceMotion ? 0 : undefined }}
           className="flex items-center gap-3 focus:outline-none"
         >
           <div className="h-8 w-8 rounded bg-[var(--accent)]" />

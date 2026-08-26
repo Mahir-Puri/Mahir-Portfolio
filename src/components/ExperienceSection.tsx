@@ -19,10 +19,10 @@ function ExperienceCard({
 
   return (
     <motion.article
-      initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: reduceMotion ? 0 : delay }}
+      transition={{ duration: reduceMotion ? 0 : undefined, delay: reduceMotion ? 0 : delay }}
       className="rounded-2xl border border-white/10 neu-surface p-5 md:p-6 flex flex-col"
       style={isTransitioningToThis ? { viewTransitionName: `experience-card-${exp.slug}` } : undefined}
     >

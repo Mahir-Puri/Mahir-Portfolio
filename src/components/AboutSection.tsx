@@ -9,9 +9,10 @@ export default function AboutSection() {
     <section id="about" className="px-4 md:px-8 mt-14">
       <div className="rounded-2xl border border-white/10 neu-surface p-6 md:p-10 grid md:grid-cols-[200px_1fr] gap-6">
         <motion.div
-          initial={reduceMotion ? undefined : { opacity: 0, y: 6 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 6 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: reduceMotion ? 0 : undefined }}
           className="flex md:block"
         >
           <img
@@ -22,9 +23,10 @@ export default function AboutSection() {
           />
         </motion.div>
         <motion.div
-          initial={reduceMotion ? undefined : { opacity: 0 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: reduceMotion ? 0 : undefined }}
           className="space-y-3"
         >
           <h2 className="text-2xl font-extrabold">About Me</h2>
