@@ -5,7 +5,9 @@ import { useAppMode } from '../context/AppMode'
 
 export default function FeaturedProjectsSection() {
   const { recruiterMode } = useAppMode()
-  const items = recruiterMode ? featuredProjects.filter((p) => p.recruiterPriority) : featuredProjects
+  // Ongoing work gets its own dedicated section, so this row stays proven/shipped work only.
+  const shipped = featuredProjects.filter((p) => p.status !== 'Ongoing')
+  const items = recruiterMode ? shipped.filter((p) => p.recruiterPriority) : shipped
 
   return (
     <div id="projects">

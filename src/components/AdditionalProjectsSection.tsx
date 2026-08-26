@@ -8,9 +8,14 @@ export default function AdditionalProjectsSection() {
 
   if (recruiterMode) return null
 
+  // Ongoing work gets its own dedicated section, so these rows show completed work only.
+  const rows = additionalProjectRows
+    .map((row) => ({ ...row, items: row.items.filter((p) => p.status !== 'Ongoing') }))
+    .filter((row) => row.items.length > 0)
+
   return (
     <div className="space-y-10">
-      {additionalProjectRows.map((row) => (
+      {rows.map((row) => (
         <Carousel<Project>
           key={row.title}
           title={row.title}
