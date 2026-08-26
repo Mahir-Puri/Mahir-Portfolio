@@ -230,7 +230,7 @@ export const additionalProjectRows: ProjectRow[] = [
         title: 'Shopify Flash Sale Engine',
         oneLiner:
           'A concurrency-focused commerce backend that prevents overselling during flash-sale traffic using atomic Redis reservations.',
-        status: 'Ongoing',
+        status: 'Completed',
         year: '2026',
         category: 'Distributed Systems',
         tech: ['Ruby on Rails', 'Redis', 'Lua', 'Sidekiq', 'PostgreSQL'],
@@ -247,7 +247,7 @@ export const additionalProjectRows: ProjectRow[] = [
           testing:
             'I load-tested the reservation path with simultaneous checkout requests and verified webhook idempotency under duplicate deliveries.',
           outcome:
-            'So far, zero oversells under 150+ simultaneous checkout requests and zero duplicate webhook processing in the test scenarios I have run.',
+            'Zero oversells under 150+ simultaneous checkout requests and zero duplicate webhook processing across the test scenarios I ran.',
         },
       },
     ],
@@ -492,7 +492,7 @@ export const skillGroups: SkillGroup[] = [
 ]
 
 export const currentlyNote =
-  "Right now: building Ballast's scaling logic and the Shopify flash-sale reservation path, and getting ready for the Real-Time Payments Cloud Team co-op this fall."
+  "Right now: building Ballast's scaling logic and Strands' evaluation harness, and getting ready for the Real-Time Payments Cloud Team co-op this fall."
 
 export const contactInfo = {
   email: 'mahirpuri.17@gmail.com',
